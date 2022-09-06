@@ -1,0 +1,109 @@
+
+
+
+We have 3 major parts
+
+1st Content_   add_control takes unique id,[]  
+2nd Style_     (Works with tag_names and classes)
+3rd rendering_ it uses [] as we have seen in previous structure.
+
+>>what do we need in Content section? ab alert box
+    all we need of 6 parts of inputs
+    0.(ALERT ICON) input using keyname Alert_icon_ab
+        0. VIEW
+        1. SHAPE
+    1.(ALL CONTENT DIV)
+        0. position
+        1.(TITLE) input using keyname Title_ab
+            1. size control
+            2. alignment
+        2.(CONTENT) input using keyname Content_ab
+            1. size control
+            2. alignment
+        
+
+    2. (BUTTON DIV SECTION)
+        0.(BUTTON 1) input using keyname Button_1_ab
+            1. size control
+            2. alignment
+            3. link
+            4.(ICON FOR BUTTON2) input using keyname cross_ab
+                0. VIEW
+                1. SHAPE
+    
+        2.(BUTTON 2) input using keyname Button_2_ab
+            1. size control
+            2. alignment
+            3. link
+            4.(ICON FOR BUTTON2) input using keyname cross_ab
+                0. VIEW
+                1. SHAPE
+            
+    3.(ALERT CROSS) input using keyname Alert_cross
+        
+
+
+>>what do we need in Style section?
+    all we need 6 parts of styling
+
+    0. style tab's class name icon_name
+        0. rotate
+        1. color
+        2. size
+        3. padding
+        4. margin
+    1. style tab's class name text_header
+        0. Typography
+        1. text shadow
+        2. color
+        3. padding 
+        4. margin 
+    2. style tab's class name text_content
+        0. Typography
+        1. text shadow
+        2. color
+        3. padding 
+        4. margin 
+    3. style tab's class name button_1
+        0. typography
+        1. color 
+        2. button_border
+        3. button_width
+        4. button_radius
+        5. hover
+        
+    4. style tab's class name button_2
+        0. typography
+        1. color 
+        2. button_border
+        3. button_width
+        4. button_radius
+        5. hover
+
+    5. style tab's class name icon_name
+        0. rotate
+        1. color
+        2. size
+        3. padding
+        4. margin
+    6. style tab's class name icon_name
+        0. rotate
+        1. color
+        2. size
+        3. padding
+        4. margin
+        
+    
+>>how we are gonna render 
+
+    by default 
+    1 icon will be info and in the left, 
+    heading will be heading, 
+    text will be loren ipsum,
+    both buttons will be down and with no border radius, no border, no backgound-color &  defined text color will be there 
+    default text of button1 will be Learn more
+    default text of button1 will be View changes with icon.
+    with a cross on top right
+
+ 
+ 
