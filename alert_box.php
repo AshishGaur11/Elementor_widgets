@@ -154,6 +154,23 @@ class Widget_Heading extends Widget_Base {
 				'prefix_class' => 'elementor-shape-',
 			]
 		);
+		$this->add_responsive_control(
+			'size',
+			[
+				'label' => esc_html__( 'Size', 'elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'min' => 6,
+						'max' => 300,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-icon' => 'font-size: {{SIZE}}{{UNIT}};',
+				],
+				'separator' => 'before',
+			]
+		);
 		$this->end_controls_section();
 			
 		
@@ -245,8 +262,31 @@ class Widget_Heading extends Widget_Base {
 		);
 		$this->end_controls_section();
 
-		//button arrangement
 
+		//content arrangement
+		$this->start_controls_section(
+			'content_ar',
+			[
+				'label' => esc_html__( 'Content Arrangement', 'elementor' ),
+			]
+		);
+		$this->add_control(
+			'content_align',
+			[
+				'label' => esc_html__( 'Content Position', 'elementor' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					'-1' => esc_html__( 'Row', 'elementor' ),
+					'-2' => esc_html__( 'Column', 'elementor' ),
+				],
+				'default' => '-1',
+				'prefix_class' => 'parent',
+			]
+		);
+		$this->end_controls_section();
+
+
+		//button arrangement
 		$this->start_controls_section(
 			'button_ar',
 			[
@@ -261,14 +301,15 @@ class Widget_Heading extends Widget_Base {
 				'label' => esc_html__( 'Button Position', 'elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'_1' => esc_html__( 'Row', 'elementor' ),
-					'_2' => esc_html__( 'Column', 'elementor' ),
+					'-1' => esc_html__( 'Row', 'elementor' ),
+					'-2' => esc_html__( 'Column', 'elementor' ),
 				],
-				'default' => '_1',
-				'prefix_class' => 'parent_button',
+				'default' => '-1',
+				'prefix_class' => 'parent-button',
 			]
 		);
 		$this->end_controls_section();
+
 
 		// button 1
 		$this->start_controls_section(
@@ -552,7 +593,6 @@ class Widget_Heading extends Widget_Base {
 				
 			]
 		);
-
 		$this->end_controls_section();
 
 		// paragraph
@@ -620,8 +660,8 @@ class Widget_Heading extends Widget_Base {
 		);
 		$this->end_controls_section();
 
-
 		//button1
+
 		$this->start_controls_section(
 			'button_style',
 			[
@@ -696,6 +736,7 @@ class Widget_Heading extends Widget_Base {
 		$this->end_controls_section();
 
 		//button2
+
 		$this->start_controls_section(
 			'button_style1',
 			[
@@ -767,9 +808,52 @@ class Widget_Heading extends Widget_Base {
 				],
 			]
 		);
-
 		$this->end_controls_section();
 
+		
+
+		$this->start_controls_section(
+			'cross-icon',
+			[
+				'label' => esc_html__( 'Remove icon', 'elementor' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+		$this->add_control(
+			'icon_indent_1',
+			[
+				'label' => esc_html__( 'Icon Spacing right', 'elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .cross' => 'right: {{SIZE}}{{UNIT}};', 
+					// '{{WRAPPER}} .cross' => 'margin-left: {{SIZE}}{{UNIT}};',
+
+				],
+			]
+		);
+		$this->add_control(
+			'icon_indent_2',
+			[
+				'label' => esc_html__( 'Icon Spacing Top', 'elementor' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'px' => [
+						'max' => 100,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .cross' => 'top: {{SIZE}}{{UNIT}};',
+					// '{{WRAPPER}} .cross' => 'margin-top: {{SIZE}}{{UNIT}};',
+
+				],
+			]
+		);
+		$this->end_controls_section();
 
 
 
@@ -804,7 +888,7 @@ class Widget_Heading extends Widget_Base {
 			<div class="c1">
 					<?php if(!empty($settings['selected_icon'])) {?>	
 
-					<div class='icon'>
+					<div class='icon elementor-icon'>
 						<?php Icons_Manager::render_icon( $settings['selected_icon'], [ 'aria-hidden' => 'true','class' =>'icon1','view']);?>
 
 
@@ -830,12 +914,12 @@ class Widget_Heading extends Widget_Base {
 
 						<div class="paragraph">
 
-								<p class="pera_g"><?php echo $settings['peragraph']; ?> <?php echo $settings['button_align'] ?></p>
+								<p class="pera_g"><?php echo $settings['peragraph']; ?></p>
 						</div>
 
 					<?php }?>
 	
-						<div class="button_parent">
+						<div class="button-parent">
 							<div class="button_1">
 								<?php if($settings['icon_align']=='right'){?>
 							
@@ -891,14 +975,16 @@ class Widget_Heading extends Widget_Base {
 
 			</div>
 
-			<div class="c3">
 
-					<div class="cross">
-						<?php Icons_Manager::render_icon( $settings['selected_icon_c'], [ 'aria-hidden' => 'true','class' =>'icon1','view']);?>
-					</div>
-				
-						
+		</div>
+
+		<div class="c3">
+
+			<div class="cross">
+				<?php Icons_Manager::render_icon( $settings['selected_icon_c'], [ 'aria-hidden' => 'true','class' =>'icon1','view']);?>
 			</div>
+
+			
 		</div>
 					 
 					 
